@@ -4,7 +4,7 @@ def jaccard(d1, d2):
         return 0.0
     inter = d1.intersection(d2)
     union = d1.union(d2)
-    return len(inter) / len(union)
+    return len(inter) / float(len(union))
 
 
 def relevance(d1, d2):
@@ -17,4 +17,4 @@ def relevance(d1, d2):
             if q == item:
                 acc += 1
                 break
-    return acc / length
+    return acc / float(length)
