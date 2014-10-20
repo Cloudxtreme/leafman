@@ -1,5 +1,5 @@
 from leafman.strategy import relevance
-from leafman.aggregates import suggest, extract, best_of
+from leafman.process import suggest, extract, best_of
 
 
 def test_suggest():

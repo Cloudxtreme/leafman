@@ -1,6 +1,6 @@
 """
-    leafman.aggregates
-    ~~~~~~~~~~~~~~~~~~
+    leafman.process
+    ~~~~~~~~~~~~~~~
     Functions for utilising the various strategies to
     compute suggestions.
 """
