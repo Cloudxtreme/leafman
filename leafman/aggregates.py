@@ -51,4 +51,4 @@ def best_of(suggestions):
 
     :param suggestions: An iterable of suggestions.
     """
-    return extract(suggestions, limit=1)[0]
+    return max(suggestions, key=itemgetter(1))
