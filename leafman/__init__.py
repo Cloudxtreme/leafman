@@ -10,7 +10,7 @@ def suggest(query, choices, threshold=0.5, strategy=jaccard):
             yield choice, rank
 
 
-def best(suggestions, limit=5):
+def extract(suggestions, limit=5):
     return nlargest(
         limit, suggestions,
         key=itemgetter(1),
