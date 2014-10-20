@@ -32,8 +32,8 @@ def suggest(query, choices, threshold=0.5, strategy=jaccard):
 
 def extract(suggestions, limit=5):
     """
-    Extract the best choices from *suggestions*
-    and only give the best *limit* ones.
+    Extract the best choices from *suggestions* and
+    only give up to *limit* choices.
 
     :param suggestions: An iterable of suggestions.
     :param limit: Defaults to 5.
