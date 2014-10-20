@@ -48,5 +48,7 @@ def best_of(suggestions):
     """
     Returns the best suggestion out of
     *suggestions*.
+
+    :param suggestions: An iterable of suggestions.
     """
     return extract(suggestions, limit=1)[0]
