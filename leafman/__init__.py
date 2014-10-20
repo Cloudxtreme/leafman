@@ -1,4 +1,5 @@
 from heapq import nlargest
+from operator import itemgetter
 from leafman.strategy import jaccard
 
 
@@ -12,5 +13,5 @@ def suggest(query, choices, threshold=0.5, strategy=jaccard):
 def best(suggestions, limit=5):
     return nlargest(
         limit, suggestions,
-        key=lambda x: x[1],
+        key=itemgetter(1),
     )
