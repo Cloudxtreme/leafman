@@ -8,7 +8,7 @@ index, though any comparing function can be used.
 
 ```python
 from leafman import suggest
-suggest(query, [choices])
+suggest('query', ['choice1', 'choice2'])
 ```
 
 Due to the emphasis on simiplicity, speed and

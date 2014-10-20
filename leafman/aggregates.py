@@ -20,8 +20,8 @@ def suggest(query, choices, threshold=0.5, strategy=jaccard):
     :param query: The query.
     :param choices: An iterable of choices.
     :param threshold: Inclusive minimum bound.
-    :param strategy: Defaults to ``jaccard``; any
-        function that takes a query string and a
+    :param strategy: Defaults to ``jaccard``; can
+        be any function that takes a query and
         choice and returns a number.
     """
     for choice in choices:
