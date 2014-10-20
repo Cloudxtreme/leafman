@@ -10,3 +10,8 @@ index, though any ranking function can be used.
 from leafman import suggest
 suggest(query, [choices])
 ```
+
+Due to the emphasis on simiplicity, speed and
+composability, and the domain of the problem,
+Leafman uses a functional style, similar to that
+of the ``heapq`` library.
