@@ -2,7 +2,7 @@
     leafman.strategy
     ~~~~~~~~~~~~~~~~
     Implements two strategies- the jaccard index and
-    a relevancy search.
+    a relevancy-based index.
 """
 
 
