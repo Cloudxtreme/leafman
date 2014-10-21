@@ -12,7 +12,7 @@ from leafman import suggest
 suggest('query', ['choice1', 'choice2'])
 ```
 
-Due to the emphasis on simiplicity, speed and
+Due to the emphasis on simiplicity, speed, and
 composability, and the domain of the problem,
 Leafman uses a functional style, similar to that
 of the ``heapq`` library.
