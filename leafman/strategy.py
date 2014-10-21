@@ -37,12 +37,13 @@ def relevance(query):
         length = len(value)
         if not length or query_length > length:
             return 0.0
+        start = 0
         matches = 0
         for char in query:
-            idx = value.find(char)
+            idx = value.find(char, start)
             if idx == -1:
                 break
-            value = value[idx+1:]
             matches += 1
+            start = idx + 1
         return matches / float(length)
     return rank
