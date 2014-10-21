@@ -37,9 +37,9 @@ def extract(suggestions, limit=5):
     :param suggestions: An iterable of suggestions.
     :param limit: Defaults to 5.
     """
-    rv = list(suggestions)
-    rv.sort(itemgetter(1))
-    return rv[:limit]
+    return sorted(suggestions,
+                  key=itemgetter(1),
+                  reverse=True)[:limit]
 
 
 def best_of(suggestions):
