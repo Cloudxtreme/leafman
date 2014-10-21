@@ -15,13 +15,14 @@ def jaccard(query):
     :param query: The first iterable.
     """
     query = set(query)
+    length = len(query)
 
     def rank(value):
         value = set(value)
         if not (value or query):
             return 0.0
         inter = len(query & value)
-        union = len(query | value)
+        union = len(value) + length - inter
         return inter / float(union)
     return rank
 
