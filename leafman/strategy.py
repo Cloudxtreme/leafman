@@ -15,6 +15,7 @@ def jaccard(query):
     :param query: The first iterable.
     """
     query = set(query)
+
     def rank(value):
         value = set(value)
         if not (value or query):
@@ -32,7 +33,9 @@ def relevance(query):
 
     :param query: The first iterable.
     """
-    query_length = float(len(query))
+    query_length = len(query)
+    fql = float(query_length)
+
     def rank(value):
         length = len(value)
         if not length or query_length > length:
@@ -45,5 +48,5 @@ def relevance(query):
                 break
             match += 1
             start = idx + 1
-        return match / query_length
+        return match / fql
     return rank
