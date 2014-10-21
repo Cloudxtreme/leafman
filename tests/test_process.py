@@ -18,8 +18,8 @@ def test_suggest_strategy():
 
 
 def test_extract():
-    s = suggest('q', ['q1', 'q23'])
-    assert extract(s) == [('q1', 0.5)]
+    s = suggest('q', ['q1', 'q234'], threshold=0.2)
+    assert extract(s) == [('q1', 0.5), ('q234', 0.25)]
     assert extract(s, limit=0) == []
 
 
