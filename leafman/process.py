@@ -6,7 +6,6 @@
 """
 
 
-from heapq import nlargest
 from operator import itemgetter
 from leafman.strategy import jaccard
 
@@ -38,10 +37,9 @@ def extract(suggestions, limit=5):
     :param suggestions: An iterable of suggestions.
     :param limit: Defaults to 5.
     """
-    return nlargest(
-        limit, suggestions,
-        key=itemgetter(1),
-    )
+    rv = list(suggestions)
+    rv.sort(itemgetter(1))
+    return rv[:limit]
 
 
 def best_of(suggestions):
