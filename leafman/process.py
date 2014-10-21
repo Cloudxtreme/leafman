@@ -21,10 +21,12 @@ def suggest(query, choices, threshold=0.5, strategy=jaccard):
     :param threshold: Inclusive minimum bound.
     :param strategy: Defaults to ``jaccard``; can
         be any function that takes a query and
-        choice and returns a number.
+        returns a closure, that calculates an
+        index.
     """
+    meth = strategy(query)
     for choice in choices:
-        rank = strategy(query, choice)
+        rank = meth(choice)
         if rank >= threshold:
             yield choice, rank
 
