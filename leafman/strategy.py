@@ -32,7 +32,7 @@ def relevance(query):
 
     :param query: The first iterable.
     """
-    query_length = len(query)
+    query_length = float(len(query))
     def rank(value):
         length = len(value)
         if not length or query_length > length:
@@ -45,5 +45,5 @@ def relevance(query):
                 break
             match += 1
             start = idx + 1
-        return match / float(length)
+        return match / query_length
     return rank

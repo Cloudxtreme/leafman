@@ -11,5 +11,5 @@ def test_jaccard():
 def test_relevance():
     relv = relevance('ab')
     assert relv('ab') == 1.0
-    assert relv('dqab') == 0.50
+    assert relv('ac') == 0.5
     assert relv('') == 0.0
