@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/eugene-eeo/leafman/master/art/logo.png" align="left" vspace="35">
+<img src="https://raw.github.com/eugene-eeo/leafman/master/art/logo.png" align="left" vspace="35">
 
 # Leafman
 

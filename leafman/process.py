@@ -39,7 +39,7 @@ def extract(suggestions, limit=5):
     """
     return sorted(suggestions,
                   key=itemgetter(1),
-                  reverse=True)[:limit]
+                  reverse=1)[:limit]
 
 
 def best_of(suggestions):
