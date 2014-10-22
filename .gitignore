@@ -1,3 +1,7 @@
+# Manifest and DS_Store
+.DS_Store
+MANIFEST
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
