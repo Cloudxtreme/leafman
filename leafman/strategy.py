@@ -46,8 +46,8 @@ def relevance(query):
         for char in query:
             idx = value.find(char, start)
             if idx == -1:
-                break
+                return 0.0
             match += 1
             start = idx + 1
-        return match / fql
+        return match / float(length)
     return rank

@@ -13,8 +13,8 @@ def test_suggest_threshold():
 
 
 def test_suggest_strategy():
-    s = suggest('dna', ['dnaqb', 'danb'], strategy=relevance)
-    assert len(list(s)) == 2
+    s = suggest('dna', ['dnaqb'], strategy=relevance)
+    assert len(list(s)) == 1
 
 
 def test_extract():
