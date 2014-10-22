@@ -17,7 +17,7 @@ def jaccard(query):
     length = len(query)
 
     def rank(value):
-        if not (value or query):
+        if not value:
             return 0.0
         inter = sum(1 for a in query if a in value)
         union = len(value) + length - inter
