@@ -28,7 +28,10 @@ def jaccard(query):
 def relevance(query):
     """
     Returns a closure that performs relevance index
-    a given iterable.
+    a given iterable. A relevance index works like
+    the Ctrl-P plugin for Vim- the characters within
+    the query all need to be present in a given
+    choice, in the same order.
 
     :param query: The first iterable.
     """
@@ -39,12 +42,10 @@ def relevance(query):
         if not length or query_length > length:
             return 0.0
         start = 0
-        match = 0
         for char in query:
             idx = value.find(char, start)
             if idx == -1:
                 return 0.0
-            match += 1
             start = idx + 1
-        return match / float(length)
+        return query_length / float(length)
     return rank
