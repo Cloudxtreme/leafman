@@ -35,7 +35,6 @@ def relevance(query):
     :param query: The first iterable.
     """
     query_length = len(query)
-    fql = float(query_length)
 
     def rank(value):
         length = len(value)
