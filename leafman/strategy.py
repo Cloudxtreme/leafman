@@ -14,6 +14,7 @@ def jaccard(query):
 
     :param query: The first iterable.
     """
+    query = set(query)
     length = len(query)
 
     def rank(value):

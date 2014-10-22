@@ -2,7 +2,7 @@ from leafman.strategy import jaccard, relevance
 
 
 def test_jaccard():
-    jacc = jaccard('ab')
+    jacc = jaccard('abb')
     assert jacc('abbbbb') == 1.0
     assert jacc('ab') == 1.0
     assert jacc('a') == 0.5
