@@ -21,7 +21,7 @@ def jaccard(query):
         if not value:
             return 0.0
         value = set(value)
-        inter = sum(1 for a in query if a in value)
+        inter = len(query & value)
         union = len(value) + length - inter
         return inter / float(union)
     return rank
