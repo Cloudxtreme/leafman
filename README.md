@@ -1,11 +1,10 @@
 <img src="https://raw.github.com/eugene-eeo/leafman/master/art/banner.png">
 
-## Overview
-
-Leafman is a very straightforward and fast library
-for computing suggestions based on a given string,
-and choices. It is based internally on the Jaccard
-index, though any comparing function can be used.
+Leafman is a very small, straightforward, and fast
+library for computing suggestions based on a given
+string and choices. It is based (by default) on the
+Jaccard index, though any comparing function can be
+used.
 
 ```python
 from leafman import suggest
