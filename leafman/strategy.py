@@ -39,13 +39,13 @@ def relevance(query):
 
     def rank(value):
         length = len(value)
-        if 0 < length >= query_length:
-            start = 0
-            for char in query:
-                idx = value.find(char, start)
-                if idx == -1:
-                    return 0.0
-                start = idx + 1
-            return query_length / float(length)
-        return 0.0
+        if not length or length < query_length:
+            return 0.0
+        start = 0
+        for char in query:
+            idx = value.find(char, start)
+            if idx == -1:
+                return 0.0
+            start = idx + 1
+        return query_length / float(length)
     return rank
