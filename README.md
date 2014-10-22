@@ -1,6 +1,6 @@
-<img src="https://raw.github.com/eugene-eeo/leafman/master/art/logo.png" align="left" vspace="35">
+<img src="https://raw.github.com/eugene-eeo/leafman/master/art/logo.png">
 
-# Leafman
+## Overview
 
 Leafman is a very straightforward and fast library
 for computing suggestions based on a given string,
