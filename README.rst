@@ -18,4 +18,4 @@ of the ``heapq`` library. To install just do a
 ``pip install leafman``. To find out more you can
 read the `documentation`_.
 
-.. _docs: http://leafman.readthedocs.org/
+.. _documentation: http://leafman.readthedocs.org/
