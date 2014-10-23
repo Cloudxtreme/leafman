@@ -20,6 +20,13 @@ Usage of leafman is very simple- just use the
         ]
     )
 
+.. IMPORTANT::
+
+    Do not pass empty queries to the :func:`leafman.suggest`
+    function. This will cause some strategies
+    to explode due to :class:`ZeroDivisionError`.
+
+
 The :func:`leafman.suggest` function returns
 an iterable that yields the choice, and a rank
 for that choice, in the order that the choices
