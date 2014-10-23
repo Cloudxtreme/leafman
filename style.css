@@ -1,0 +1,33 @@
+body {
+    width: 600px;
+    margin: 5em auto;
+    font-size: 17px;
+}
+
+a {
+    color: #61AE24;
+}
+
+a:hover {
+    color: #2E7B00;
+    text-decoration: none;
+}
+
+p {
+    font-family: 'Roboto';
+    font-weight: 300;
+}
+
+#tagline {
+    font-family: "Gloria Hallelujah";
+    font-size: 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+#banner {
+    margin: 0px auto;
+    display: block;
+}
