@@ -15,4 +15,7 @@ Due to the emphasis on simiplicity, speed, and
 composability, and the domain of the problem,
 Leafman uses a functional style, similar to that
 of the ``heapq`` library. To install just do a
-``pip install leafman``.
+``pip install leafman``. To find out more you can
+read the `documentation`_.
+
+.. _docs: http://leafman.readthedocs.org/
