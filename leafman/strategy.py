@@ -12,7 +12,7 @@ def jaccard(query):
     on a given iterable, taking the *query* into
     account.
 
-    :param query: The first iterable.
+    :param query: An initial query value.
     """
     query = set(query)
     length = len(query)
@@ -35,7 +35,7 @@ def relevance(query):
     the query all need to be present in a given
     choice, in the same order.
 
-    :param query: The first iterable.
+    :param query: An initial query value.
     """
     query_length = len(query)
 
