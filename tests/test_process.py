@@ -13,7 +13,7 @@ def test_suggest_threshold():
 
 
 def test_suggest_strategy():
-    s = suggest('dna', ['dnaqb'], strategy=relevance)
+    s = suggest('dna', ['dnaqb', 'dan'], strategy=relevance)
     assert len(list(s)) == 1
 
 
