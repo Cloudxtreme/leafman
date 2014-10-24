@@ -130,3 +130,44 @@ in the ``strategy`` parameter:
 
     suggest('query', choices=[], strategy=substring)
     suggest('query', choices=[], strategy=SubstringStrategy)
+
+
+#####################
+Preprocessing Pattern
+#####################
+
+For more expensive indexing strategies and situations
+where the query changes but the choices do not, the
+**Preprocessing Pattern** is preferred, for example::
+
+    class Strategy():
+        def __init__(self):
+            self.cache = {}
+
+        def preprocess(self, iterable):
+            for item in iterable:
+                self.cache[item] = process(item)
+
+        @property
+        def choices(self):
+            for item in self.cache:
+                yield item
+
+        def index(self, query):
+            def closure(value):
+                value = self.cache[value]
+                return ratio(query, value)
+
+And you can use this API very easily::
+
+    ins = Strategy()
+    ins.preprocess(['query1', 'query2'])
+    suggest('query', ins.choices, strategy=ins.index)
+
+Though you are not required to follow this pattern
+exactly, it is best if you do because it will make
+it easier for the client code to swap out strategies
+while keeping the method calls constant. However, if
+you need to derive from the spec a little bit just
+to make some performance-related tweaks, feel free
+to do so.
