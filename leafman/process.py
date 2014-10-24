@@ -61,8 +61,13 @@ def relative_best(suggestions):
 
     :param suggestions: The suggestions.
     """
-    rv = list(suggestions)
-    average = sum(r[1] for r in rv) / float(len(rv))
+    rv = []
+    runsum = 0
+    for option in suggestions:
+        rv.append(option)
+        runsum += option[1]
+
+    average = runsum / float(len(rv))
     for choice, rank in rv:
         if rank >= average:
             yield choice, rank
