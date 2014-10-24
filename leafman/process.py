@@ -51,3 +51,23 @@ def best_of(suggestions):
     :param suggestions: An iterable of suggestions.
     """
     return max(suggestions, key=itemgetter(1))
+
+
+def relative_best(suggestions):
+    """
+    Returns the best suggestions relatively, that
+    is that their ranking equals or exceeds that of
+    the average ranking.
+
+    :param suggestions: The suggestions.
+    """
+    rv = []
+    acc = 0
+    for choice, rank in suggestions:
+        acc += rank
+        rv.append((choice, rank))
+
+    average = acc / float(len(rv))
+    for choice, rank in rv:
+        if rank >= average:
+            yield choice, rank
