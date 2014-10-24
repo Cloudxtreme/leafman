@@ -1,16 +1,26 @@
 body {
     width: 600px;
-    margin: 5em auto;
-    font-size: 17px;
+    margin: 2em auto;
+    font-size: 19px;
 }
 
 a {
     color: #61AE24;
 }
 
-a:hover {
+a:hover, span#str, span#kwd {
     color: #2E7B00;
+}
+
+a:hover {
     text-decoration: none;
+}
+
+pre {
+    font-family: 'Consolas', Monaco, monospace;
+    font-size: 15px;
+    background-color: #F0F0F0;
+    padding: 10px;
 }
 
 p {
