@@ -82,6 +82,19 @@ Note that this function, along with the
 can work with any iterable that yields a
 two-value tuple of choice and a rank.
 
+You can also extract the relatively (above
+or equal to the average) good suggestions
+via the :func:`leafman.process.relative_best`
+function. For example:
+
+.. code-block:: python
+
+    from leafman.process import relative_best
+    relative_best(suggest(
+        'query',
+        choices=['query1', 'query2'],
+    ))
+
 
 ##############
 Advanced Usage
@@ -132,9 +145,9 @@ in the ``strategy`` parameter:
     suggest('query', choices=[], strategy=SubstringStrategy)
 
 
-#####################
+~~~~~~~~~~~~~~~~~~~~~
 Preprocessing Pattern
-#####################
+~~~~~~~~~~~~~~~~~~~~~
 
 For more expensive indexing strategies and situations
 where the query changes but the choices do not, the
