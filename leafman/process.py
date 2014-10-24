@@ -63,9 +63,9 @@ def relative_best(suggestions):
     """
     rv = []
     runsum = 0
-    for option in suggestions:
-        rv.append(option)
-        runsum += option[1]
+    for choice, rank in suggestions:
+        rv.append((choice, rank))
+        runsum += rank
 
     average = runsum / float(len(rv))
     for choice, rank in rv:
