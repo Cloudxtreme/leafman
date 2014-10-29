@@ -15,8 +15,9 @@ strategy a breeze.
 
 .. code-block:: python
 
-    from leafman import suggest
-    suggest('query', ['choice1', 'choice2'])
+    >>> from leafman import suggest
+    >>> list(suggest('abc', ['abcd', 'abcdef', 'adede']))
+    [('abcd', 0.75), ('abcdef', 0.5)]
 
 Due to the emphasis on simiplicity, speed, and composability,
 and the domain of the problem, Leafman uses a functional style,
