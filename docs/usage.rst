@@ -151,7 +151,10 @@ Preprocessing Pattern
 
 For more expensive indexing strategies and situations
 where the query changes but the choices do not, the
-**Preprocessing Pattern** is preferred, for example::
+**Preprocessing Pattern** is preferred, for example:
+
+
+.. code-block:: python
 
     class Strategy():
         def __init__(self):
@@ -171,7 +174,9 @@ where the query changes but the choices do not, the
                 value = self.cache[value]
                 return ratio(query, value)
 
-And you can use this API very easily::
+And you can use this API very easily:
+
+.. code-block:: python
 
     ins = Strategy()
     ins.preprocess(['query1', 'query2'])
