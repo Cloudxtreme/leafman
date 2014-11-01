@@ -37,7 +37,6 @@ def relevance(query):
 
     :param query: An initial query value.
     """
-    query = tuple(query)
     query_length = len(query)
 
     def rank(value):
