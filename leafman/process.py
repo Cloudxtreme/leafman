@@ -40,17 +40,22 @@ def extract(suggestions, limit=5):
     :param suggestions: An iterable of suggestions.
     :param limit: Defaults to 5.
     """
-    return nlargest(limit, suggestions, key=itemgetter(1))
+    rank = itemgetter(1)
+    return (
+        [max(suggestions, key=rank)] if limit == 1 else
+        nlargest(limit, suggestions, key=rank)
+        )
 
 
-def best_of(suggestions):
-    """
-    Returns the best suggestion out of
-    *suggestions*.
+def _sum_ranks(suggestions):
+    suggested = []
+    runsum = 0
 
-    :param suggestions: An iterable of suggestions.
-    """
-    return max(suggestions, key=itemgetter(1))
+    for choice, rank in suggestions:
+        suggested.append((choice, rank))
+        runsum += rank
+
+    return suggested, runsum
 
 
 def relative_best(suggestions):
@@ -61,13 +66,11 @@ def relative_best(suggestions):
 
     :param suggestions: The suggestions.
     """
-    suggested = []
-    runsum = 0
-    for choice, rank in suggestions:
-        suggested.append((choice, rank))
-        runsum += rank
+    suggested, runsum = _sum_ranks(suggestions)
+    if not suggested:
+        return
 
-    average = runsum / float(len(suggested))
+    average = float(runsum) / len(suggested)
     for choice, rank in suggested:
         if rank >= average:
             yield choice, rank

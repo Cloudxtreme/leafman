@@ -2,9 +2,9 @@
     leafman
     ~~~~~~~
     A simple and fast library for computing suggestions
-    using either relvancy or the Jaccard index.
+    using either relevancy or the Jaccard index.
 
-    :copyright: (c) 2014 Eugene Eeo
+    :copyright: (c) 2015 Eeo Jun
     :license: MIT, see LICENSE for details.
 """
 

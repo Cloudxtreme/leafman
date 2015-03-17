@@ -1,5 +1,5 @@
 from leafman.strategy import relevance
-from leafman.process import suggest, extract, best_of, relative_best
+from leafman.process import suggest, extract, relative_best
 
 
 def test_suggest():
@@ -18,14 +18,10 @@ def test_suggest_strategy():
 
 
 def test_extract():
-    s = suggest('q', ['q1', 'q234'], threshold=0.2)
+    s = list(suggest('q', ['q1', 'q234'], threshold=0.2))
     assert extract(s) == [('q1', 0.5), ('q234', 0.25)]
+    assert extract(s, limit=1) == [('q1', 0.5)]
     assert extract(s, limit=0) == []
-
-
-def test_best_of():
-    s = suggest('q', ['q1', 'q23'])
-    assert best_of(s) == ('q1', 0.5)
 
 
 def test_relative_best():
