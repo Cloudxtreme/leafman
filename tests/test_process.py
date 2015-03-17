@@ -1,10 +1,15 @@
+from pytest import fixture
 from leafman.strategy import relevance
 from leafman.process import suggest, extract, relative_best
 
 
-def test_suggest():
-    s = suggest('q', ['q1', 'q2'])
-    assert list(s) == [('q1', 0.5), ('q2', 0.5)]
+@fixture
+def res():
+    return list(suggest('q', ['q1', 'q123'], threshold=0.25))
+
+
+def test_suggest(res):
+    assert res == [('q1', 0.5), ('q123', 0.25)]
 
 
 def test_suggest_threshold():
@@ -17,14 +22,12 @@ def test_suggest_strategy():
     assert len(list(s)) == 1
 
 
-def test_extract():
-    s = list(suggest('q', ['q1', 'q234'], threshold=0.2))
-    assert extract(s) == [('q1', 0.5), ('q234', 0.25)]
-    assert extract(s, limit=1) == [('q1', 0.5)]
-    assert extract(s, limit=0) == []
+def test_extract(res):
+    assert extract(res) == [('q1', 0.5), ('q123', 0.25)]
+    assert extract(res, limit=1) == [('q1', 0.5)]
+    assert extract(res, limit=0) == []
 
 
-def test_relative_best():
-    s = suggest('q', ['q1', 'q234', ''], threshold=0.0)
-    s = relative_best(s)
-    assert extract(s) == [('q1', 0.5), ('q234', 0.25)]
+def test_relative_best(res):
+    s = relative_best(res)
+    assert extract(s) == [('q1', 0.5)]
