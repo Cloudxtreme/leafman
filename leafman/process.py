@@ -47,23 +47,23 @@ def extract(suggestions, limit=5):
         )
 
 
-def _sum_ranks(suggestions):
+def _avg_ranks(suggestions):
     """
-    Sum the ranks of given *suggestions* then
-    returns a new, copied list of suggestions,
-    the summation, and the size.
+    Returns the average of the ranks for the given
+    suggestions, and then returns a copied list of
+    suggestions.
 
     :param suggestions: An iterable of suggestions.
     """
     suggested = []
-    runsum = 0
-    size = 0
+    runsum, size = 0, 0
 
     for size, datum in enumerate(suggestions, 1):
         suggested.append(datum)
         runsum += datum[1]
 
-    return suggested, runsum, size
+    return (float(runsum) / size if suggested else 0,
+            suggested)
 
 
 def relative_best(suggestions):
@@ -74,9 +74,7 @@ def relative_best(suggestions):
 
     :param suggestions: The suggestions.
     """
-    suggestions, runsum, size = _sum_ranks(suggestions)
-    if size:
-        average = float(runsum) / size
-        for choice, rank in suggestions:
-            if rank >= average:
-                yield choice, rank
+    average, suggestions = _avg_ranks(suggestions)
+    for choice, rank in suggestions:
+        if rank >= average:
+            yield choice, rank

@@ -30,4 +30,4 @@ def test_extract(res):
 
 def test_relative_best(res):
     s = relative_best(res)
-    assert extract(s) == [('q1', 0.5)]
+    assert list(s) == [('q1', 0.5)]
