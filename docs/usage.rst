@@ -68,24 +68,10 @@ parameter:
     from leafman.strategy import relevance
     suggest('bost', choices=[], strategy=relevance)
 
-To extract the best suggestion you should
-use the :func:`leafman.process.best_of`
-function. For example:
-
-.. code-block:: python
-
-    from leafman.process import best_of
-    assert best_of(the_best)[0] == 'boston'
-
-Note that this function, along with the
-:func:`leafman.process.extract` function
-can work with any iterable that yields a
-two-value tuple of choice and a rank.
-
-You can also extract the relatively (above
-or equal to the average) good suggestions
-via the :func:`leafman.process.relative_best`
-function. For example:
+You can extract the relatively (above or equal
+to the average) good suggestions via the
+:func:`leafman.process.relative_best` function.
+For example:
 
 .. code-block:: python
 
@@ -173,6 +159,7 @@ where the query changes but the choices do not, the
             def closure(value):
                 value = self.cache[value]
                 return ratio(query, value)
+            return closure
 
 And you can use this API very easily:
 
