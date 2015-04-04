@@ -74,10 +74,8 @@ def relative_best(suggestions):
     :param suggestions: The suggestions.
     """
     suggested, runsum = _sum_ranks(suggestions)
-    if not suggested:
-        return
-
-    average = float(runsum) / len(suggested)
-    for choice, rank in suggested:
-        if rank >= average:
-            yield choice, rank
+    if suggested:
+        average = float(runsum) / len(suggested)
+        for choice, rank in suggested:
+            if rank >= average:
+                yield choice, rank
