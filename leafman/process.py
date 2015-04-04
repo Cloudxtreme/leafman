@@ -48,6 +48,13 @@ def extract(suggestions, limit=5):
 
 
 def _sum_ranks(suggestions):
+    """
+    Sum the ranks of given *suggestions* then
+    returns a new, copied list of suggestions
+    and the summation.
+
+    :param suggestions: An iterable of suggestions.
+    """
     suggested = []
     runsum = 0
 
