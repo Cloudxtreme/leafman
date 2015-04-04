@@ -30,10 +30,11 @@ def jaccard(query):
 def relevance(query):
     """
     Returns a closure that performs relevance index
-    a given iterable. A relevance index works like
-    the Ctrl-P plugin for Vim- the characters within
-    the query all need to be present in a given
-    choice, in the same order.
+    a given iterable. How relevant a given *query*
+    is to a datum is equal to it's length divided
+    by the length of the datum. The characters in
+    the *query* must also be incrementally present
+    in the datum.
 
     :param query: An initial query value.
     """
