@@ -32,9 +32,9 @@ def relevance(query):
     Returns a closure that performs relevance index
     a given iterable. How relevant a given *query*
     is to a datum is equal to it's length divided
-    by the length of the datum. The characters in
-    the *query* must also be incrementally present
-    in the datum.
+    by the length of the datum if the characters in
+    the *query* are incrementally present in the
+    datum. Else, it is 0.
 
     :param query: An initial query value.
     """
