@@ -62,7 +62,7 @@ def _avg_ranks(suggestions):
         suggested.append(datum)
         runsum += datum[1]
 
-    return (float(runsum) / size if suggested else 0,
+    return (float(runsum) / size if size else 0,
             suggested)
 
 
