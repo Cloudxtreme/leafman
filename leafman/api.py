@@ -1,5 +1,5 @@
-from .trie import Trie
 from __future__ import division
+from .trie import Trie
 
 
 def jaccard(a, b):
