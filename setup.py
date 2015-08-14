@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name='leafman',
-    version='0.3.0',
+    version='0.4.0',
     description='simple and fast library for computing suggestions',
     license='MIT',
     author='Eugene Eeo',
