@@ -19,15 +19,15 @@ class Trie(object):
     def __init__(self, data=()):
         self.tree = {}
         for item in data:
-            self.insert(item, item)
+            self.insert(item)
 
-    def insert(self, seq, end=None):
+    def insert(self, seq):
         t = self.tree
         for k in seq:
             if k not in t:
                 t[k] = {}
             t = t[k]
-        t[None] = end
+        t[None] = seq
 
     def get(self, seq):
         t = self.tree
