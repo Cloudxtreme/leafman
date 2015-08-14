@@ -1,5 +1,11 @@
 from .trie import Trie
-from .scoring import jaccard
+from __future__ import division
+
+
+def jaccard(a, b):
+    a = set(a)
+    b = set(b)
+    return len(a & b) / len(a | b)
 
 
 def suggest(query, words, metric=jaccard, threshold=0.3):
