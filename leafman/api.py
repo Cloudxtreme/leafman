@@ -8,8 +8,8 @@ def jaccard(a, b):
     return len(a & b) / len(a | b)
 
 
-def suggest(query, words, metric=jaccard, threshold=0.3):
-    for item in Trie(words).get(query):
+def suggest(query, choices, metric=jaccard, threshold=0.3):
+    for item in Trie(choices).get(query):
         score = metric(query, item)
         if score >= threshold:
             yield item, score
