@@ -13,7 +13,7 @@ def length_index(query):
         l2 = len(value)
         m2 = int(math.log10(l2))
         if m2 > m1:
-            return math.pow(l1, m2) / l2
+            return math.pow(l1, m2 - m1) / l2
         return l1 / l2
     return score
 
