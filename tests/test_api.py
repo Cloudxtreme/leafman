@@ -8,8 +8,8 @@ def test_suggest():
     assert list(suggested) == expected
 
 
-def test_suggest_getter():
-    s = suggest('abc', {'abc': ['def']}, getter=dict, threshold=0)
+def test_suggest_finder():
+    s = suggest('abc', {'abc': ['def']}, finder=dict)
     e = [('def', 0.0)]
     assert list(s) == e
 

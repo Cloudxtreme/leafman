@@ -16,9 +16,14 @@ def jaccard(query):
     return func
 
 
-def suggest(query, choices, getter=Trie, metric=jaccard, threshold=0.3):
-    metric = metric(query)
-    for item in getter(choices).get(query):
-        score = metric(item)
-        if score >= threshold:
-            yield item, score
+def build_engine(finder):
+    def function(query, metric):
+        metric = metric(query)
+        for item in finder.get(query):
+            yield item, metric(item)
+    return function
+
+
+def suggest(query, choices, finder=Trie, metric=jaccard):
+    engine = build_engine(finder(choices))
+    return engine(query, metric)
