@@ -1,19 +1,21 @@
 from __future__ import division
+import math
 from .trie import Trie
 
 
-def jaccard(query):
-    query = set(query)
-    length = len(query)
+def length_index(query):
+    l1 = len(query)
+    m1 = int(math.log10(l1))
 
-    def func(value):
+    def score(value):
         if not value:
             return 0.0
-        value = set(value)
-        inter = len(value & query)
-        union = len(value) + length - inter
-        return inter / union
-    return func
+        l2 = len(value)
+        m2 = int(math.log10(l2))
+        if m2 > m1:
+            return math.pow(l1, m2) / l2
+        return l1 / l2
+    return score
 
 
 def build_engine(finder, metric):
@@ -24,6 +26,6 @@ def build_engine(finder, metric):
     return function
 
 
-def suggest(query, choices, finder=Trie, metric=jaccard):
+def suggest(query, choices, finder=Trie, metric=length_index):
     engine = build_engine(finder(choices), metric)
     return engine(query)
