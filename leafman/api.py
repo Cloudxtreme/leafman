@@ -16,14 +16,14 @@ def jaccard(query):
     return func
 
 
-def build_engine(finder):
-    def function(query, metric):
-        metric = metric(query)
+def build_engine(finder, metric):
+    def function(query):
+        score = metric(query)
         for item in finder.get(query):
-            yield item, metric(item)
+            yield item, score(item)
     return function
 
 
 def suggest(query, choices, finder=Trie, metric=jaccard):
-    engine = build_engine(finder(choices))
-    return engine(query, metric)
+    engine = build_engine(finder(choices), metric)
+    return engine(query)
