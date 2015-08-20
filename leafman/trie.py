@@ -30,12 +30,8 @@ class Trie(object):
 
     def get(self, seq):
         t = self.tree
-        r = []
-        b = []
         for item in seq:
             if item not in t:
-                return r
-            b.append(item)
+                return []
             t = t[item]
-        r.extend(longest(t))
-        return r
+        return list(longest(t))
