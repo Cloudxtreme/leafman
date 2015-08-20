@@ -4,15 +4,14 @@ from collections import deque
 def longest(tree):
     if tree is None:
         return
-    q = deque([([], tree)])
+    q = deque([tree])
     while q:
-        p, t = q.popleft()
+        t = q.popleft()
         for k in t:
             if k is None:
                 yield t[k]
                 continue
-            d = p + [k], t[k]
-            q.append(d)
+            q.append(t[k])
 
 
 class Trie(object):
