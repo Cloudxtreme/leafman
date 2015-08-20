@@ -12,7 +12,7 @@ def jaccard(query):
         value = set(value)
         inter = len(value & query)
         union = len(value) + length - inter
-        return inter / float(union)
+        return inter / union
     return func
 
 
