@@ -1,6 +1,6 @@
 .. image:: https://raw.github.com/eugene-eeo/leafman/master/art/banner.png
 
-Leafman is a very small, fast, and pluggable autocompletion
+Leafman is a very simple, fast, and pluggable autocompletion
 library for Python. It defaults to using a trie to generate
 suggestions, and the Jaccard index to give them "scores":
 
