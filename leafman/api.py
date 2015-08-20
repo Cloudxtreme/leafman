@@ -16,9 +16,9 @@ def jaccard(query):
     return func
 
 
-def suggest(query, choices, metric=jaccard, threshold=0.3):
+def suggest(query, choices, getter=Trie, metric=jaccard, threshold=0.3):
     metric = metric(query)
-    for item in Trie(choices).get(query):
+    for item in getter(choices).get(query):
         score = metric(item)
         if score >= threshold:
             yield item, score

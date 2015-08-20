@@ -8,6 +8,12 @@ def test_suggest():
     assert list(suggested) == expected
 
 
+def test_suggest_getter():
+    s = suggest('abc', {'abc': ['def']}, getter=dict, threshold=0)
+    e = [('def', 0.0)]
+    assert list(s) == e
+
+
 def test_jaccard():
     u = jaccard('a')
     assert u('') == 0.0
