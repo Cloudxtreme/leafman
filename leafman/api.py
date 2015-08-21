@@ -4,17 +4,12 @@ from .trie import Trie
 
 
 def length_index(query):
-    l1 = len(query)
-    m1 = math.log10(l1)
+    l0 = len(query)
 
     def score(value):
         if not value:
-            return 0.0
-        l2 = len(value)
-        m2 = math.log10(l2)
-        if int(m2) > int(m1):
-            return math.pow(l1, m2 - m1) / l2
-        return l1 / l2
+            return 0
+        return l0 / len(value)
     return score
 
 
