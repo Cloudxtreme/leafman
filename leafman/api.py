@@ -1,4 +1,3 @@
-from __future__ import division
 import math
 from .trie import Trie
 
@@ -9,7 +8,7 @@ def length_index(query):
     def score(value):
         if not value:
             return 0
-        return l0 / len(value)
+        return l0 / float(len(value))
     return score
 
 
